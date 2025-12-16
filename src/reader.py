@@ -4,10 +4,7 @@ from pathlib import Path
 
 def read_file(path):
     path = Path(path)
-
     if path.suffix == ".csv":
         return pd.read_csv(path)
-    elif path.suffix in [".xlsx", ".xls"]:
-        return pd.read_excel(path)
     else:
-        raise ValueError(f"Formato no soportado: {path.suffix}")
+        raise ValueError(f"Solo se soportan archivos CSV, no: {path.suffix}")
